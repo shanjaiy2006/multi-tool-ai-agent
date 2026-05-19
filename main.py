@@ -105,12 +105,20 @@ def multiply(a: int, b: int) -> str:
     return f"{a} multiplied by {b} is {a*b}."
 
 def main():
-    model = ChatGroq(temperature=0,model_name="llama-3.3-70b-versatile",disable_streaming=True)
+    model = ChatGroq(temperature=0,model_name="llama-3.1-8b-instant",disable_streaming=True)
 
     tools = [say_hello,multiply,get_weather,internet_search,send_email,youtube_search,read_pdf] #tool is some external service that the agent can call to get information or perform actions. For example, a calculator tool that can perform mathematical calculations, or a web search tool that can fetch information from the internet.
     agent_executor =  create_agent(
         model = model,
-        tools = tools
+        tools = tools,
+         system_prompt="""
+You are a helpful AI assistant.
+
+Rules:
+- Never call the same tool repeatedly.
+- Call tools only once.
+- Give final answers directly after tool output.
+"""
     )
 
     print("Welcome! I'm your AI assistant. Type 'quit' to exit.")
