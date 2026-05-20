@@ -20,7 +20,7 @@ This project demonstrates tool calling, API integrations, and agentic AI workflo
 ✅ Gmail Email Automation using SMTP  
 ✅ PDF Reading and Text Extraction  
 ✅ Arithmetic Operations  
-✅ Conversational AI Assistant using Groq + LangChain  
+✅ Conversational AI Assistant using Groq + LangChain   
 
 ---
 
